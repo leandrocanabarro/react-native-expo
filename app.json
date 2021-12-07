@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "loja-ton",
+    "slug": "loja-ton",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "loja-ton"
+}
