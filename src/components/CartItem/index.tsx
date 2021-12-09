@@ -4,8 +4,6 @@ import * as S from './styles'
 
 import { useCartStore, Product } from '../../store/cart'
 
-import { BorderlessButton } from 'react-native-gesture-handler'
-
 type Props = {
   product: Product
 }
@@ -19,20 +17,20 @@ export function CartItem({ product }: Props) {
       <S.Detail>
         <S.Title>{product.title}</S.Title>
         <S.Buttons>
-          <BorderlessButton onPress={() => decrease(product)}>
+          <S.ButtonDecrease onPress={() => decrease(product)}>
             <S.IconDecrease name="minus-circle" size={30} />
-          </BorderlessButton>
+          </S.ButtonDecrease>
           <S.Quantity>{product.quantity}</S.Quantity>
-          <BorderlessButton onPress={() => increase(product)}>
+          <S.ButtonIncrease onPress={() => increase(product)}>
             <S.IconIncrease name="plus-circle" size={30} />
-          </BorderlessButton>
+          </S.ButtonIncrease>
         </S.Buttons>
       </S.Detail>
       <S.Total>
         <S.Amount>$ {product.price}</S.Amount>
-        <BorderlessButton onPress={() => remove(product)}>
+        <S.ButtonRemove onPress={() => remove(product)}>
           <S.IconRemove name="trash-2" size={30} />
-        </BorderlessButton>
+        </S.ButtonRemove>
       </S.Total>
     </S.Container>
   )

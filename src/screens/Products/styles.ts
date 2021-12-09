@@ -1,13 +1,14 @@
 import styled from 'styled-components/native'
+import { BorderlessButton } from 'react-native-gesture-handler'
 
-export const Container = styled.View`
-  margin: 60px 0 80px 0;
-`
+export const Container = styled.View``
 
 export const Header = styled.View`
   align-items: flex-end;
   padding: 15px 0;
 `
+
+export const ButtonCart = styled(BorderlessButton)``
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};

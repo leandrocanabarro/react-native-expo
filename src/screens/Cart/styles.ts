@@ -1,15 +1,14 @@
 import styled from 'styled-components/native'
+import { BorderlessButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
 
-export const Container = styled.View`
-  margin: 60px 0 80px 0;
-`
+export const Container = styled.View``
 
 export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 20px 0;
 `
 
 export const Title = styled.Text`
@@ -20,6 +19,8 @@ export const Title = styled.Text`
 `
 
 export const CartContainer = styled.View``
+
+export const ButtonBack = styled(BorderlessButton)``
 
 export const IconBack = styled(Feather)`
   color: ${({ theme }) => theme.colors.secondary};

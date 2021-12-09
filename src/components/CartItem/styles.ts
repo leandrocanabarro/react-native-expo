@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { BorderlessButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
 
 export const Container = styled.View`
@@ -34,13 +35,19 @@ export const Image = styled.Image`
   margin-right: 10px;
 `
 
+export const ButtonDecrease = styled(BorderlessButton)``
+
 export const IconDecrease = styled(Feather)`
   color: ${({ theme }) => theme.colors.secondary};
 `
 
+export const ButtonIncrease = styled(BorderlessButton)``
+
 export const IconIncrease = styled(Feather)`
   color: ${({ theme }) => theme.colors.secondary};
 `
+
+export const ButtonRemove = styled(BorderlessButton)``
 
 export const IconRemove = styled(Feather)`
   color: ${({ theme }) => theme.colors.secondary};

@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { ListRenderItemInfo } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import { Wrapper } from '../../components/Wrapper'
 import { IconCart } from '../../components/IconCart'
@@ -11,12 +12,17 @@ import { Product } from '../../store/cart'
 import * as S from './styles'
 
 export function Products() {
+  const navigation = useNavigation()
   const { products, error } = useFetchProducts()
   const [localProducts, setLocalProducts] = React.useState([])
 
   React.useEffect(() => {
     setLocalProducts(products)
   }, [products])
+
+  const navigateToCart = () => {
+    navigation.navigate('Cart')
+  }
 
   return (
     <Wrapper>
@@ -26,7 +32,9 @@ export function Products() {
         ) : (
           <>
             <S.Header>
-              <IconCart />
+              <S.ButtonCart onPress={navigateToCart}>
+                <IconCart />
+              </S.ButtonCart>
             </S.Header>
             <S.Products
               data={localProducts}
