@@ -10,15 +10,25 @@ import { useFetchProducts } from '../../hooks/useFetchProducts'
 import { Product } from '../../store/cart'
 
 import * as S from './styles'
+import { Search } from '../../components/Search/index'
 
 export function Products() {
   const navigation = useNavigation()
   const { products, error } = useFetchProducts()
   const [localProducts, setLocalProducts] = React.useState([])
+  const [query, setQuery] = React.useState('')
 
   React.useEffect(() => {
-    setLocalProducts(products)
-  }, [products])
+    if (query === '') {
+      setLocalProducts(products)
+    } else {
+      setLocalProducts(
+        products.filter(({ title }) => {
+          return title.toLowerCase().indexOf(query.toLowerCase()) > -1
+        })
+      )
+    }
+  }, [products, query])
 
   const navigateToCart = () => {
     navigation.navigate('Cart')
@@ -32,6 +42,7 @@ export function Products() {
         ) : (
           <>
             <S.Header>
+              <Search doSearch={query => setQuery(query)} />
               <S.ButtonCart onPress={navigateToCart}>
                 <IconCart />
               </S.ButtonCart>

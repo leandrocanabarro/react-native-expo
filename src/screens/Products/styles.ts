@@ -4,7 +4,9 @@ import { BorderlessButton } from 'react-native-gesture-handler'
 export const Container = styled.View``
 
 export const Header = styled.View`
-  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px 0;
 `
 
